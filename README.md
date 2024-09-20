@@ -1,4 +1,4 @@
-!!!!!!!!!!!!!!!!!!!!!!! Updateuri Website - sorinarseni.me !!!!!!!!!!!!!!!!!!!!!!!
+!!! Updateuri Website - sorinarseni.me !!!
 
-1.1
-- Crearea indexului.
+# 1.1
+    - Crearea indexului.
