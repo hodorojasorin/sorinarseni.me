@@ -1,3 +1,10 @@
-h1 {
+.info {
     color:blue;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.link{
+    text-align: center;
+    
 }
