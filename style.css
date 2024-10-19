@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
 body {
     background-image: url(https://i.pinimg.com/originals/89/9d/da/899dda241eca5e959d9d945f45aba682.gif);
     background-size: cover;
@@ -6,27 +13,67 @@ body {
     height: 100vh;
     margin: 0;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.info, .neimportant, .link, .code {
-    background-color: rgba(0, 0, 0, 0.7); /* Fundal negru semi-transparent */
-    border: 2px solid white; /* Chenar alb */
+.container {
+    background-color: white;
     padding: 20px;
-    margin: 20px;
-    border-radius: 10px; /* Colțuri rotunjite */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
 }
 
-a {
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile p {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    background-color: #2574a9;
     color: white;
-    text-decoration: none;
+    padding: 12px; 
+    border-radius: 5px;
+    text-decoration: none; 
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+    font-size: 16px; 
 }
 
-a:hover {
-    text-decoration: underline;
+.link-btn img {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 10px;
 }
 
-code {
-    color: #f8f8f2;
-    font-family: "Courier New", Courier, monospace;
+.link-btn:hover {
+    background-color: #0b447d;
+}
+
+p {
+    font-style: italic;
 }
