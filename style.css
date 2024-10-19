@@ -1,19 +1,32 @@
-.info {
-    color:blue;
-    text-align: center;
+body {
+    background-image: url(https://i.pinimg.com/originals/89/9d/da/899dda241eca5e959d9d945f45aba682.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
 }
 
-.link{
-    text-align: center;
+.info, .neimportant, .link, .code {
+    background-color: rgba(0, 0, 0, 0.7); /* Fundal negru semi-transparent */
+    border: 2px solid white; /* Chenar alb */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px; /* Colțuri rotunjite */
 }
 
-.neimportant{
-    text-align: center;
-    margin: 10%;
+a {
+    color: white;
+    text-decoration: none;
 }
 
-.code{
-    text-align: right;
-    margin:50px
+a:hover {
+    text-decoration: underline;
+}
+
+code {
+    color: #f8f8f2;
+    font-family: "Courier New", Courier, monospace;
 }
