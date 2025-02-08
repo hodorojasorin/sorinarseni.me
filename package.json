@@ -1,0 +1,23 @@
+{
+  "name": "sorinarseni.me",
+  "version": "1.0.0",
+  "description": "!!! Updateuri Website - sorinarseni.me !!!",
+  "main": "next.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hodorojasorin/sorinarseni.me.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hodorojasorin/sorinarseni.me/issues"
+  },
+  "homepage": "https://github.com/hodorojasorin/sorinarseni.me#readme",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
