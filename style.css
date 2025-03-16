@@ -6,20 +6,20 @@
 }
 
 body {
-    background-image: url(https://images2.alphacoders.com/485/485769.jpg);
+    background-image: url(media/back2.gif);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     margin: 0;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .container {
-    background-color: white;
+    background-color: rgb(192, 189, 189);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -54,7 +54,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start; 
-    background-color: #2574a9;
+    background-color: #3a3a3a;
     color: white;
     padding: 12px; 
     border-radius: 5px;
