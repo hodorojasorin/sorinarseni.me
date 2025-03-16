@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>momentan pe avarii</title>
-    <link rel="icon" type="type/png"
-        href="media/png-transparent-mcdonald-s-logo-oldest-mcdonald-s-restaurant-ronald-mcdonald-logo-golden-arches-mcdonalds-miscellaneous-angle-food-thumbnail.png">
+    <link rel="icon" type="type/png" href="media/guli.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -40,10 +39,42 @@
         <p>am sa termin websiteul, candva... promit.</p>
     </div>
 
+    <audio id="myAudio" loop>
+        <source src="media/The Weeknd - São Paulo (Official Music Video).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="audio-controls">
+        <button id="playButton" class="audio-btn">
+            <img class="i1" src="https://media.istockphoto.com/id/1161124003/vector/red-outlined-play-button.jpg?s=612x612&w=0&k=20&c=ynA__PQTmcRdIt2mcdnWJY36QxjK8mEXfPLVcgMI8u0=" alt="Play"> Play Music
+        </button>
+        <button id="stopButton" class="audio-btn">
+            <img src="https://cdn4.iconfinder.com/data/icons/colorful-design-basic-icons-1/550/stop_song_red-512.png" alt="Stop"> Stop Music
+        </button>
+    </div>
+    
+
+
     <script src="next.js"></script>
     <script src="app/layout.tsx"></script>
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+
+
+        var audio = document.getElementById("myAudio");
+        var playButton = document.getElementById("playButton");
+        var stopButton = document.getElementById("stopButton");
+
+        playButton.addEventListener("click", function () {
+            audio.play();
+        });
+
+        stopButton.addEventListener("click", function () {
+            audio.pause();
+            audio.currentTime = 0; 
+        });
+
+
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
 </body>

@@ -16,6 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .container {
@@ -71,9 +72,41 @@ body {
 }
 
 .link-btn:hover {
-    background-color: #0b447d;
+    background-color: #560306;
 }
 
 p {
     font-style: italic;
+}
+
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.audio-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.audio-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.audio-btn:hover {
+    transform: scale(1.05);
 }
