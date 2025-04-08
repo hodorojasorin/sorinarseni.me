@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
 2. contact - Redirecționează la Linktree
 3. login - Loghează-te ca admin (User: sarcasm, Parola: asd123)
 4. deadline - Afișează deadline-urile tale
-5. deadline create "&ltid&gt &ltdata&gt &ltora&gt &ltdescriere&gt"
-6. deadline delete "&ltid&gt"
+5. deadline create "<id> <data> <ora> <descriere>"
+6. deadline delete "<id>"
 7. exit
 `, false);
         } else {
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = parts[2];  // Parola este al treilea element
         
         // Verifică dacă userul și parola sunt corecte
-        if (username === 'zz' && password === 'xx') {
+        if (username === 'sarcasm' && password === 'asd123') {
             isAdmin = true;
             appendOutput('login', 'Logare reușită! Ai acum acces la comenzile admin.', false);
         } else {
