@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Courier New", monospace;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+    margin: 0;
+}
+
+.terminal {
+    width: 80%;
+    max-width: 800px;
+    height: 70%;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+}
+
+.terminal-scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.terminal-output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.terminal-input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.terminal-arrow {
+    color: #ccc;
+    font-size: 20px;
+    margin-right: 8px;  /* distanța dintre săgeată și input */
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+}
+
+.terminal-input::placeholder {
+    color: #888;
+}
+
+.terminal-footer {
+    position: absolute;
+    bottom: 10px;
+    color: #ccc;
+    font-size: 14px;
+    font-family: monospace;
+}
