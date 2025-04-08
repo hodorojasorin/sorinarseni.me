@@ -44,19 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isAdmin) {
             // Comenzi pentru admin
             appendOutput('help', `
-1. about - Descriere despre mine
-2. contact - Redirecționează la Linktree
-3. login - Loghează-te ca admin (User: sarcasm, Parola: asd123)
-4. deadline - Afișează deadline-urile tale
-5. deadline create "<id> <data> <ora> <descriere>"
-6. deadline delete "<id>"
+1. about
+2. contact
+3. login
+4. deadline
+5. deadline create &ltid&gt &ltdata&gt &ltora&gt &ltdescriere&gt
+6. deadline delete &ltid&gt
 7. exit
 `, false);
         } else {
             // Comenzi pentru guest (neautentificat)
             appendOutput('help', `
-1. about - Descriere despre mine
-2. contact - Redirecționează la Linktree
+1. about
+2. contact
 `, false);
         }
     };
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = parts[2];  // Parola este al treilea element
         
         // Verifică dacă userul și parola sunt corecte
-        if (username === 'sarcasm' && password === 'asd123') {
+        if (username === 'zz' && password === 'xx') {
             isAdmin = true;
             appendOutput('login', 'Logare reușită! Ai acum acces la comenzile admin.', false);
         } else {
