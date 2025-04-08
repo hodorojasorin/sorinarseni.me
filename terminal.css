@@ -6,22 +6,26 @@
 
 body {
     font-family: "Courier New", monospace;
-    background-color: #121212;
+    background-color: #0b0b0b;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
     height: 100vh;
     margin: 0;
 }
 
+h1{
+    margin-bottom: 30px;
+    font-size: 44px;
+}
 .terminal {
     width: 80%;
     max-width: 800px;
     height: 70%;
-    background-color: #1e1e1e;
+    background-color: #141414;
+    border: solid;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
