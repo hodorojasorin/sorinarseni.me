@@ -123,9 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const createDeadline = (command) => {
         const parts = command.split(' ');
         const id = parts[2];  // Identificatorul deadline-ului
-        const date = parts[3]; // Data deadline-ului
-        const time = parts[4]; // Ora deadline-ului
-        const description = parts.slice(5).join(' '); // Descrierea deadline-ului
+        const day = parts[3];  // Ziua
+        const month = parts[4]; // Luna
+        const year = parts[5]; // Anul
+        const date = `${day}/${month}/${year}`; // Formatează data
+        const time = parts[6]; // Ora deadline-ului
+        const description = parts.slice(7).join(' '); // Descrierea deadline-ului
 
         const newDeadline = {
             id,
@@ -200,6 +203,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Afișează mesajul de început în terminal
     appendOutput(' ', 'Need some help?, type "help"');
 
-    // Afișează deadline-urile din localStorage când se încarcă pagina
-    listDeadlines();
+    // Nu mai apelăm listDeadlines automat la reîncărcarea paginii
 });
