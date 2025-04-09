@@ -16,10 +16,12 @@ body {
     margin: 0;
 }
 
-h1{
-    margin-bottom: 30px;
-    font-size: 40px;
+img {
+    height: 10vh; 
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
 }
+
 .terminal {
     width: 80%;
     max-width: 800px;
@@ -37,6 +39,7 @@ h1{
 .terminal-scroll {
     flex-grow: 1;
     overflow-y: auto;
+    height: 100%;
 }
 
 .terminal-output {

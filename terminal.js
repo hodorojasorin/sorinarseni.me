@@ -1,5 +1,3 @@
-// terminal.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const input = document.querySelector('[data-terminal="input"]');
     const output = document.querySelector('[data-terminal="output"]');
@@ -26,8 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         output.appendChild(commandElement);
         output.appendChild(resultElement);
-        terminal.scrollTop = terminal.scrollHeight;  // Scroll la ultima linie
+
+        // Aplica algoritmul de scroll simplificat
+        scrollToBottom(); // Mergi la ultima linie
     };
+
+    // Algoritmul de scroll
+    function scrollToBottom() {
+        output.scrollTop = output.scrollHeight;
+    }
 
     // Afișează ora
     const updateTime = () => {
@@ -39,24 +44,47 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     setInterval(updateTime, 1000); // Actualizează ora la fiecare secundă
 
+    // Calculează timpul rămas până la deadline
+    const calculateTimeRemaining = (date, time) => {
+        const deadlineDate = new Date(`${date} ${time}`);
+        const now = new Date();
+        const timeDifference = deadlineDate - now;
+
+        // Dacă deadline-ul a trecut
+        if (timeDifference <= 0) {
+            return 'Terminat';
+        }
+
+        // Calcularea anilor, zilelor, orelor, minutelor și secundelor
+        const years = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365));
+        const days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        // Returnează timpul rămas în format: ani, zile, ore, minute, secunde
+        return `${years} ani, ${days} zile, ${hours} ore, ${minutes} minute, ${seconds} secunde`;
+    };
+
     // Afișează comenzi disponibile pentru help
     const showHelp = () => {
         if (isAdmin) {
-            // Comenzi pentru admin
             appendOutput('help', `
 1. about
 2. contact
-3. login
-4. deadline
-5. deadline create &ltid&gt &ltdata&gt &ltora&gt &ltdescriere&gt
-6. deadline delete &ltid&gt
-7. exit
+3. clear
+4. logout
+5. login
+6. deadline
+7. deadline create &ltid&gt &ltdata&gt &ltora&gt &ltdescriere&gt
+8. deadline delete &ltid&gt
 `, false);
         } else {
-            // Comenzi pentru guest (neautentificat)
             appendOutput('help', `
 1. about
 2. contact
+3. clear
+4. exit
 `, false);
         }
     };
@@ -75,9 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
             appendOutput('login', 'Introdu username-ul + parola.', false);
         } else if (command.startsWith('login ') && !isAdmin) {
             login(command);
-        } else if (command === 'exit' && isAdmin) {
+        } else if (command === 'logout' && isAdmin) {
             isAdmin = false;  // Ieși din contul admin
             appendOutput(command, 'Ai ieșit din contul admin.', false);
+        } else if (command === 'exit') {
+            window.close();  // Închide tab-ul
         } else if (!isAdmin && (command === 'deadline' || command.startsWith('deadline create ') || command.startsWith('deadline delete '))) {
             appendOutput(command, 'Nu ai acces la această comandă.', true);
         } else if (command === 'deadline') {
@@ -115,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         deadlines.forEach(deadline => {
             const timeRemaining = calculateTimeRemaining(deadline.date, deadline.time);
-            appendOutput('deadline', `ID: ${deadline.id} - Data: ${deadline.date} - Ora: ${deadline.time} - Descriere: ${deadline.description}`, false);
+            appendOutput('deadline', `ID: ${deadline.id} - Data: ${deadline.date} - Ora: ${deadline.time} - Descriere: ${deadline.description} - Timp rămas: ${timeRemaining}`, false);
         });
     };
 
@@ -158,22 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
         appendOutput('deadline delete', `Deadline-ul cu ID-ul ${id} a fost șters.`, false);
     };
 
-    // Calculează timpul rămas până la deadline
-    const calculateTimeRemaining = (date, time) => {
-        const deadlineDate = new Date(`${date} ${time}`);
-        const now = new Date();
-        const timeDifference = deadlineDate - now;
-
-        if (timeDifference <= 0) {
-            return 'Terminat';
-        }
-
-        const hours = Math.floor(timeDifference / 1000 / 60 / 60);
-        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        
-        return `${hours} ore și ${minutes} minute`;
-    };
-
     // Ascultă pentru comenzi
     input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
@@ -202,6 +216,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Afișează mesajul de început în terminal
     appendOutput(' ', 'Need some help?, type "help"');
-
-    // Nu mai apelăm listDeadlines automat la reîncărcarea paginii
 });
